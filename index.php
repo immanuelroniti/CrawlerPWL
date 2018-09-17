@@ -2,7 +2,7 @@
 <html>
 <head>
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 	<!-- Latest compiled and minified JavaScript -->
@@ -92,15 +92,26 @@
 
 				//----------------SHOW DATA ONE BY ONE--------------------
 				echo count($namaKamera)."<br>";
+				echo "<div class='row'>";
 				foreach ($namaKamera as $nama) {
-					echo "nama:".$nama."<br>";
+					// echo "nama:".$nama."<br>";
+					echo  "<div class='col-sm-6'>";
+					echo    "<div class='card'>";
+					echo      "<div class='card-body'>";
+					echo        "<h5 class='card-title'>".$nama."</h5>";
+					echo        "<p class='card-text'>".$nama."</p>";
+					echo        "<a href='#' class='btn btn-primary'>Go somewhere</a>";
+					echo      "</div>";
+					echo    "</div>";
+					echo  "</div>";
 				}
+				echo "</div>";
 				echo count($hargaSewa1)."<br>";
 				foreach ($hargaSewa1 as $harga) {
 					echo "harga:".$harga."<br>";
 				}
 
-				//----------------SHOW ALL DATA--------------------				
+				//----------------SHOW ALL DATA--------------------
 			}
 			crawlerSatu();
 		}
