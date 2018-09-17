@@ -32,18 +32,12 @@
 </style>
 </head>
 <body>
-	<select id="cmbMake" name="Make" >
-     <option value="">Select Manufacturer</option>
-     <option value="--Any--">--Any--</option>
-     <option value="Toyota">Toyota</option>
-     <option value="Nissan">Nissan</option>
-  </select>
 
 <table id="kamera">
   <tr>
-    <th>Index 1</th>
-    <th>Index 2</th>
-    <th>Index 3</th>
+    <th>gudangdigitalonline.com</th>
+    <th>momidigital.com</th>
+    <th>bursakameraprofesional.co.id</th>
   </tr>
   <tr>
     <td>  
@@ -72,12 +66,14 @@
 				$dom->loadHTML($output);
 				$xpath = new DOMXPath($dom);
 				$results = $xpath->query('//div[@class="product-meta-wrapper border"]');
-
+				$results2 = $xpath->query('//div[@class="clearfix product-wrapper border"]');
+				foreach ($results2 as $result2) {
+				echo $result2->childNodes[1]->attributes['href']->nodeValue."<br/>";
+				}
 				echo "<h3>Hasil Pencarian untuk kata '".$_POST['keyword']."'</h3>";
 				foreach($results as $result){
 				echo $result->childNodes[1]->nodeValue." - ".$result->childNodes[3]->nodeValue."<br/>";
-				echo "<h3>link '".$_POST['keyword']."'</h3>";
-				// echo $result->childNodes[1]->childNodes[1]->getAttribute('href');
+				
 			}
 			}
 		?>
@@ -117,7 +113,7 @@
 		?>
     </td>
     <td>  
-    	`<?php 
+    	<?php 
 			ini_set('display_errors', 'off');
 			if(isset($_POST['keyword'])){
 				$url = "https://bursakameraprofesional.co.id/catalogsearch/result/?q=".$_POST['keyword']."";
